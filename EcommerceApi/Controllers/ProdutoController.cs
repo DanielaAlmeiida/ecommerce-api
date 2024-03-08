@@ -1,4 +1,4 @@
-﻿using EcommerceApi.Data;
+﻿using EcommerceApi.Context;
 using EcommerceApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,25 +16,23 @@ public class ProdutoController  : ControllerBase
         _context = context;
     }
 
+    /*
 
     [HttpPost]
-    public IActionResult AdicionaProduto(
-        [FromBody] Produto produto)
+    public IActionResult AdicionaProduto([FromBody] Produto produto)
     {
+      
         _context.Produtos.Add(produto);
         _context.SaveChanges();
 
-        return CreatedAtAction(nameof(RecuperaProdutoPorId),
-            new {id = produto.Id},
-            produto);
+        return CreatedAtAction(nameof(RecuperaProdutoPorId), new {id = produto.Id}, produto);
+       
     }
 
     [HttpGet]
-    public IEnumerable<Produto> RecuperaProdutos(
-        [FromQuery] int skip = 0,
-        [FromQuery] int take = 10)
+    public IEnumerable<Produto> RecuperaProdutos([FromQuery] int skip = 0, [FromQuery] int take = 10)
     {
-        return _context.Produtos.ToList().Skip(skip).Take(take);
+       // return _context.Produtos.ToList().Skip(skip).Take(take);
     }
 
     [HttpGet("{id}")]
@@ -42,6 +40,7 @@ public class ProdutoController  : ControllerBase
     {
         return _context.Produtos.Find(id);
     }
+    */
 
     /*
  
