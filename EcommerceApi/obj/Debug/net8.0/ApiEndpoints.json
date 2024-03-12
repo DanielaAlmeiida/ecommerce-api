@@ -1,42 +1,15 @@
 [
   {
     "ContainingType": "EcommerceApi.Controllers.ProdutoController",
-    "Method": "AdicionaProduto",
-    "RelativePath": "Produto",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "produto",
-        "Type": "EcommerceApi.Models.Produto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EcommerceApi.Controllers.ProdutoController",
     "Method": "RecuperaProdutos",
-    "RelativePath": "Produto",
+    "RelativePath": "api/Produto",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "skip",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "take",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[EcommerceApi.Models.Produto, EcommerceApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IAsyncEnumerable\u00601[[EcommerceApi.Models.ProdutoDTO, EcommerceApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -49,7 +22,7 @@
   {
     "ContainingType": "EcommerceApi.Controllers.ProdutoController",
     "Method": "RecuperaProdutoPorId",
-    "RelativePath": "Produto/{id}",
+    "RelativePath": "api/Produto/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -73,16 +46,22 @@
     ]
   },
   {
-    "ContainingType": "testAPI.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
+    "ContainingType": "EcommerceApi.Controllers.ProdutoController",
+    "Method": "RecuperaProdutoPorNome",
+    "RelativePath": "api/Produto/{nome}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "nome",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[testAPI.WeatherForecast, EcommerceApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IAsyncEnumerable\u00601[[EcommerceApi.Models.ProdutoDTO, EcommerceApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
