@@ -22,7 +22,7 @@ public class ProdutoController  : ControllerBase
     {
         try
         {
-            var produtos = await _produtoService.RecuperaProdutos(0, 10);
+            var produtos = await _produtoService.RecuperaProdutos(0, 100);
             return Ok(produtos);
         }
         catch
@@ -31,41 +31,93 @@ public class ProdutoController  : ControllerBase
         }
     }
     
-    [HttpGet("{id}")]
+    [HttpGet("{id:int}", Name="RecuperaProdutoPorId")]
     public async Task<ActionResult<Produto?>> RecuperaProdutoPorId(int id)
     {
-        return await _produtoService.RecuperaProdutoPorId(id);
+        try
+        {
+            var produtos = await _produtoService.RecuperaProdutoPorId(id);
+            return Ok(produtos);
+        }
+        catch
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao obter produto");
+        }
     }
 
-    /*
-    [HttpGet("{nome}")]
-    public async Task<IAsyncEnumerable<ProdutoDTO>> RecuperaProdutoPorNome(string nome)
+    [HttpGet("busca")]
+    public async Task<ActionResult<IEnumerable<ProdutoDTO>>> RecuperaProdutoPorNome([FromQuery] string nome  = "")
     {
-        return (IAsyncEnumerable<ProdutoDTO>)await _produtoService.RecuperaProdutoPorNome(nome);
-    }
-    */
+        try
+        {
+            var produtos = await _produtoService.RecuperaProdutoPorNome(nome);
 
-    /*
-    [HttpGet("{id}")]
-    public IActionResult RecuperaFilmePorId(int id)
-    {
-            var filme = filmes.FirstOrDefault(filme => filme.Id == id);
-            if (filme == null) return NotFound();
-            return Ok(filme);
-    }
-    */
+            if (produtos == null) 
+                return NotFound($"Não existem produtos com o critério {nome}");
 
-    /*
+            return Ok(produtos);
+        } 
+        catch
+        { 
+            return BadRequest("Request inválido");
+        }
+    }
+
     [HttpPost]
-    public IActionResult AdicionaProduto([FromBody] Produto produto)
+    public async Task<ActionResult> AdicionaProduto(Produto produto)
     {
-
-        _context.Produtos.Add(produto);
-        _context.SaveChanges();
-
-        return CreatedAtAction(nameof(RecuperaProdutoPorId), new {id = produto.Id}, produto);
-
+        try
+        {
+            await _produtoService.AdicionaProduto(produto);
+            return CreatedAtRoute(nameof(RecuperaProdutoPorId), new { id = produto.Id }, produto);
+        }
+        catch
+        {
+            return BadRequest("Request inválido");
+        }
     }
-    */
+
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult> AtualizaProduto(int id, [FromBody] Produto produto)
+    {
+        try
+        {
+            if(produto.Id == id)
+            {
+                await _produtoService.AtualizaProduto(produto);
+                return NoContent();
+            } 
+            else
+            {
+                return BadRequest("Dados inconsistentes");
+            }
+        }
+        catch
+        {
+            return BadRequest("Request inválido");
+        }
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult> DeletaProduto(int id)
+    {
+        try
+        {
+            var produto = await _produtoService.RecuperaProdutoPorId(id);
+            if (produto != null)
+            {
+                await _produtoService.DeletaProduto(produto);
+                return Ok("Produto de excluído com sucesso");
+            }
+            else
+            {
+                return NotFound("Produto não encontrado");
+            }
+        }
+        catch
+        {
+            return BadRequest("Request inválido");
+        }
+    }
 
 }

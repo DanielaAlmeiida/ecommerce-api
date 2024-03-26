@@ -21,6 +21,22 @@
   },
   {
     "ContainingType": "EcommerceApi.Controllers.ProdutoController",
+    "Method": "AdicionaProduto",
+    "RelativePath": "api/Produto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "produto",
+        "Type": "EcommerceApi.Models.Produto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EcommerceApi.Controllers.ProdutoController",
     "Method": "RecuperaProdutoPorId",
     "RelativePath": "api/Produto/{id}",
     "HttpMethod": "GET",
@@ -47,8 +63,45 @@
   },
   {
     "ContainingType": "EcommerceApi.Controllers.ProdutoController",
+    "Method": "AtualizaProduto",
+    "RelativePath": "api/Produto/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "produto",
+        "Type": "EcommerceApi.Models.Produto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EcommerceApi.Controllers.ProdutoController",
+    "Method": "DeletaProduto",
+    "RelativePath": "api/Produto/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EcommerceApi.Controllers.ProdutoController",
     "Method": "RecuperaProdutoPorNome",
-    "RelativePath": "api/Produto/{nome}",
+    "RelativePath": "api/Produto/busca",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -56,12 +109,12 @@
       {
         "Name": "nome",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IAsyncEnumerable\u00601[[EcommerceApi.Models.ProdutoDTO, EcommerceApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EcommerceApi.Models.ProdutoDTO, EcommerceApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

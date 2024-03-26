@@ -38,54 +38,43 @@ namespace EcommerceApi.Services
     
         public async Task<Produto?> RecuperaProdutoPorId(int id)
         {
-            var produto = await _context.Produtos.FirstOrDefaultAsync(p => p.Id == id);
+            var produto = await _context.Produtos.FindAsync(id);
             return produto;
         }
 
-
-      
         public async Task<IEnumerable<ProdutoDTO>> RecuperaProdutoPorNome(string nome)
         {
-            /*
-          IEnumerable<ProdutoDTO> produtosDto;
-          if (!string.IsNullOrWhiteSpace(nome))
-          {
-              var produtos = await _context.Produtos.Where(p => p.Nome.Contains(nome)).ToListAsync();
-              produtosDto = converteProdutoParaDTO(produtos);
-          } else
-          {
-              var produtos = (IEnumerable<Produto>)await RecuperaProdutos(0, 10);
-              produtosDto = converteProdutoParaDTO(produtos);
-          }
+            IEnumerable<ProdutoDTO> produtosDto;
 
-          return produtosDto;
-               */
-            throw new NotImplementedException();
+            if (!string.IsNullOrWhiteSpace(nome))
+            {
+                var produtos = await _context.Produtos.Where(p => p.Nome.Contains(nome)).ToListAsync();
+                produtosDto = converteProdutoParaDTO(produtos);
+            }
+            else
+            {
+                produtosDto = await RecuperaProdutos(0, 10);
+            }
 
+            return produtosDto;
         }
 
-
-
-        public async Task AdicionaProduto(ProdutoDTO produtoDto)
-       {
-            /*
-          _context.Produtos.Add(produtoDto);
-          _context.SaveChanges();
-
-          return CreatedAtAction(nameof(RecuperaProdutoPorId), new { id = produto.Id }, produtoDto);
-             */
-            throw new NotImplementedException();
-
-        }
-
-        public async Task AtualizaProduto(ProdutoDTO produtoDto)
+        public async Task AdicionaProduto(Produto produto)
         {
-            throw new NotImplementedException();
+          _context.Produtos.Add(produto);
+          await _context.SaveChangesAsync();
         }
 
-        public async Task DeletaProduto(ProdutoDTO produtoDto)
+        public async Task AtualizaProduto(Produto produto)
         {
-            throw new NotImplementedException();
+            _context.Entry(produto).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeletaProduto(Produto produto)
+        {
+            _context.Produtos.Remove(produto);
+            await _context.SaveChangesAsync();
         }
 
     }

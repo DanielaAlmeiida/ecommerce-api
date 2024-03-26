@@ -8,8 +8,8 @@ namespace EcommerceApi.Services
         Task<IEnumerable<ProdutoDTO>> RecuperaProdutos([FromQuery] int skip = 0, [FromQuery] int take = 10);
         Task<Produto?> RecuperaProdutoPorId(int id);
         Task<IEnumerable<ProdutoDTO>> RecuperaProdutoPorNome(string nome);
-        //Task AdicionaProduto(ProdutoDTO produtoDto);
-        //Task AtualizaProduto(ProdutoDTO produtoDto);
-        //Task DeletaProduto(ProdutoDTO produtoDto);
+        Task AdicionaProduto(Produto? produto);
+        Task AtualizaProduto(Produto produto);
+        Task DeletaProduto(Produto produto);
     }
 }
