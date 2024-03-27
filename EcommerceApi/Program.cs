@@ -17,13 +17,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-/*
-builder.Services.AddEntityFrameworkMySql()
-    .AddDbContext<ProdutoContext>(
-        options => options.UserSqlServer()
-    );
-*/
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -38,5 +31,13 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// CORS configuration
+app.UseCors(options =>
+{
+    options.AllowAnyOrigin()
+           .AllowAnyHeader()
+           .AllowAnyMethod();
+});
 
 app.Run();
