@@ -29,11 +29,10 @@ namespace EcommerceApi.Services
             return produtosDto;
         }
 
-        public async Task<IEnumerable<ProdutoDTO>> RecuperaProdutos(int skip, int take)
+        public async Task<IEnumerable<Produto>> RecuperaProdutos(int skip, int take)
         {
             var produtos = await _context.Produtos.Skip(skip).Take(take).ToListAsync();
-            var produtosDto = converteProdutoParaDTO(produtos);
-            return produtosDto;
+            return produtos;
         }
     
         public async Task<Produto?> RecuperaProdutoPorId(int id)
@@ -42,21 +41,20 @@ namespace EcommerceApi.Services
             return produto;
         }
 
-        public async Task<IEnumerable<ProdutoDTO>> RecuperaProdutoPorNome(string nome)
+        public async Task<IEnumerable<Produto>> RecuperaProdutoPorNome(string nome)
         {
-            IEnumerable<ProdutoDTO> produtosDto;
+            IEnumerable<Produto> produtos;
 
             if (!string.IsNullOrWhiteSpace(nome))
             {
-                var produtos = await _context.Produtos.Where(p => p.Nome.Contains(nome)).ToListAsync();
-                produtosDto = converteProdutoParaDTO(produtos);
+                produtos = await _context.Produtos.Where(p => p.Nome.Contains(nome)).ToListAsync();
             }
             else
             {
-                produtosDto = await RecuperaProdutos(0, 10);
+                produtos = await RecuperaProdutos(0, 10);
             }
 
-            return produtosDto;
+            return produtos;
         }
 
         public async Task AdicionaProduto(Produto produto)

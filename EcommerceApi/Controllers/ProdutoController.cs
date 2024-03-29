@@ -18,11 +18,11 @@ public class ProdutoController  : ControllerBase
 
 
     [HttpGet]
-    public async Task<ActionResult<IAsyncEnumerable<ProdutoDTO>>> RecuperaProdutos()
+    public async Task<ActionResult<IAsyncEnumerable<Produto>>> RecuperaProdutos()
     {
         try
         {
-            var produtos = await _produtoService.RecuperaProdutos(0, 100);
+            var produtos = await _produtoService.RecuperaProdutos(0, 10);
             return Ok(produtos);
         }
         catch

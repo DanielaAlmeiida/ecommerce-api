@@ -5,9 +5,9 @@ namespace EcommerceApi.Services
 {
     public interface IProdutoService
     {
-        Task<IEnumerable<ProdutoDTO>> RecuperaProdutos([FromQuery] int skip = 0, [FromQuery] int take = 10);
+        Task<IEnumerable<Produto>> RecuperaProdutos([FromQuery] int skip = 0, [FromQuery] int take = 10);
         Task<Produto?> RecuperaProdutoPorId(int id);
-        Task<IEnumerable<ProdutoDTO>> RecuperaProdutoPorNome(string nome);
+        Task<IEnumerable<Produto>> RecuperaProdutoPorNome(string nome);
         Task AdicionaProduto(Produto? produto);
         Task AtualizaProduto(Produto produto);
         Task DeletaProduto(Produto produto);
