@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projetos\\Projetos - C#\\Ecommerce\\EcommerceApi\\EcommerceApi\\EcommerceApi.csproj": {}
+    "C:\\Users\\carlo\\Source\\Repos\\DanielaAlmeiida\\ecommerce-api\\EcommerceApi\\EcommerceApi.csproj": {}
   },
   "projects": {
-    "D:\\Projetos\\Projetos - C#\\Ecommerce\\EcommerceApi\\EcommerceApi\\EcommerceApi.csproj": {
+    "C:\\Users\\carlo\\Source\\Repos\\DanielaAlmeiida\\ecommerce-api\\EcommerceApi\\EcommerceApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projetos\\Projetos - C#\\Ecommerce\\EcommerceApi\\EcommerceApi\\EcommerceApi.csproj",
+        "projectUniqueName": "C:\\Users\\carlo\\Source\\Repos\\DanielaAlmeiida\\ecommerce-api\\EcommerceApi\\EcommerceApi.csproj",
         "projectName": "EcommerceApi",
-        "projectPath": "D:\\Projetos\\Projetos - C#\\Ecommerce\\EcommerceApi\\EcommerceApi\\EcommerceApi.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Projetos\\Projetos - C#\\Ecommerce\\EcommerceApi\\EcommerceApi\\obj\\",
+        "projectPath": "C:\\Users\\carlo\\Source\\Repos\\DanielaAlmeiida\\ecommerce-api\\EcommerceApi\\EcommerceApi.csproj",
+        "packagesPath": "C:\\Users\\carlo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\carlo\\Source\\Repos\\DanielaAlmeiida\\ecommerce-api\\EcommerceApi\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\carlo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -49,35 +45,43 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
             "Microsoft.AspNetCore.Cors": {
               "target": "Package",
               "version": "[2.1.1, )"
             },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.2, )"
+              "version": "[8.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.2, )"
+              "version": "[8.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.2, )"
+              "version": "[8.0.3, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[8.0.1, )"
+              "version": "[8.0.2, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
-              "version": "[8.0.1, )"
+              "version": "[8.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
