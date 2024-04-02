@@ -514,3 +514,4 @@ C:\Users\carlo\Source\Repos\DanielaAlmeiida\ecommerce-api\EcommerceApi\obj\Debug
 C:\Users\carlo\Source\Repos\DanielaAlmeiida\ecommerce-api\EcommerceApi\obj\Debug\net8.0\Ecommerc.C9AF1851.Up2Date
 C:\Users\carlo\Source\Repos\DanielaAlmeiida\ecommerce-api\EcommerceApi\obj\Debug\net8.0\EcommerceApi.genruntimeconfig.cache
 C:\Users\carlo\Source\Repos\DanielaAlmeiida\ecommerce-api\EcommerceApi\obj\Debug\net8.0\ref\EcommerceApi.dll
+C:\Users\carlo\Source\Repos\DanielaAlmeiida\ecommerce-api\EcommerceApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
